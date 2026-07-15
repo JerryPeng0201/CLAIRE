@@ -1,0 +1,1176 @@
+An explainable artificial intelligence framework using electrocardiograms to predict mortality and major adverse cardiovascular events
+Authors: Jerry Peng,*a Michael D. Glidden,*b Sai Rahul Ponnana,b Santosh K. Sirasapalli,b Tong Zhang,b Mark Yoder,b Nour Tashtish,b Judith Mackall,b Yu Yin,a Jing Ma,a Vipin Chaudhary,a Sanjay Rajagopalanb
+Affiliations:
+aDepartment of Computer and Data Science, Case Western Reserve University, Cleveland, OH, 44106, USA
+bHarrington Heart and Vascular Institute, University Hospitals Cleveland Medical Center, Cleveland, OH, 44106, USA
+*These authors contributed equally to this work
+Short title: An EKG-based explainable AI model for mortality and cardiovascular event prediction
+Address for Correspondence:
+Sanjay Rajagopalan, MD
+Chief, Cardiovascular Medicine and Chief Academic and Scientific Officer
+University Hospitals Cleveland Medical Center, Harrington Heart & Vascular Institute
+11100 Euclid Avenue, Lakeside 5038, Cleveland, OH 44106
+sanjay.rajagopalan@uhhospitals.org
+Tel: 216-844-5450
+Fax: 216-844-8318
+Funding Acknowledgements: XXXX
+Abstract:
+Background: Artificial intelligence (AI) algorithms can detect subtle patterns in electrocardiograms (EKGs) to predict cardiovascular risk. Though highly accurate, most models are often unable to explain the factors driving their predictions, limiting interpretability and adoption into clinical work-flows.
+Methods: We present CLAIRE, a causally-explainable AI framework based on DeepSeek-R1, an open-source chain of thought reasoning large language model (LLM), using structured EKG parameters (derived from the General Electric MUSE Cardiology Information System) to predict mortality and major adverse cardiovascular events (MACE). The overall framework utilized 60,000 unique adult EKGs from a single healthcare system (University Hospitals, Cleveland, OH; IRB #STUDY20220756) and was comprised of two stages: CLAIRE-  was fine-tuned on 637 structured EKG features to predict outcomes whereas CLAIRE- identified the most informative features. Important features were subsequently used to fine-tune additional feature-reduced CLAIRE-α variants (M73 and M50). CLAIRE-  also linked model-identified EKG abnormalities to pathophysiologic mechanisms and clinical endpoints.
+Results: Using all 637 features achieved the highest predictive performance for MACE (accuracy 0.97, AUROC 0.98) and mortality (accuracy 0.86, AUROC 0.86). Feature-reduced models retained robust performance (AUROC 0.90-0.91 for MACE; 0.76-0.86 for mortality) while reducing computational load. Model-generated causal graphs highlighted parameters related to conduction abnormalities, ventricular hypertrophy, and repolarization irregularities as key predictors, aligning with established cardiovascular physiology as evaluated by board-certified cardiologists.
+Conclusions: CLAIRE combines predictive accuracy with model interpretability aligned with cardiovascular mechanism, enabling identification of physiologically meaningful EKG features and causal pathways underlying risk predictions.  This study represents a step toward mechanistic transparency and may help address a critical gap in many contemporary EKG-based AI models.
+Introduction:
+Electrocardiograms (EKGs) are inexpensive, universally accessible, and simple to perform, making them perhaps the most widely used diagnostic tool in cardiovascular medicine. Their extensive use has generated vast repositories of data that offer unique opportunities to train artificial intelligence (AI) models. AI has demonstrated a powerful ability to uncover subtle electrical patterns that are otherwise imperceptible to clinicians but appear to contain predictive information related to long-term clinical outcomes such as mortality and major adverse cardiovascular events (MACE).1-7
+Owing in part to the growing global distribution of de-identified structured clinical datasets,8-10 there has been a surge in AI-driven efforts to utilize EKGs for clinical prediction and risk stratification.1,6,7,11-13 Various deep learning architectures have been employed broadly to detect silent atrial fibrillation,14 identify or forecast development of left ventricular (LV) dysfunction,15,16 localize LV scar,17 and predict hypertrophic cardiomyopathy genotypes.18 
+Despite these advances, however, most existing models have high predictive accuracy but remain somewhat opaque as to the factors driving their predictions. These so called “black-box” architectures, while statistically powerful, typically obscure the relative contributions of individual features, making it difficult for clinicians to understand model decisions.19-21 Comparatively few prior works have attempted to provide causal explanations or mechanistic insights into how specific electrical signals relate to downstream clinical outcomes.22-24 Consequently, a model framework that not only delivers competitive predictive performance but also takes a step toward explainability and feature-level causal traceability would bridge a current gap between statistical modeling and clinical reasoning.
+In this work, we introduce CLAIRE, a large language model (LLM)-based framework leveraging an open-source chain of thought reasoning model (DeepSeek-R125) designed to couple high prognostic capability with explainable predictions using structured EKG data in a large clinical cohort.
+Methods:
+Patient EKG Selection, Data Collection & Preprocessing 
+												A total of 795,778 standard 12-lead resting EKGs obtained retrospectively from 599,606 individual patients from January 2015 to March 2025 were extracted from the University Hospitals Health System’s (UHHS, Cleveland, OH) General Electric (GE) MUSE™ NX Cardiology Information System which stores standardized waveform and measurement data in Extensible Markup Language (XML) format. The GE MUSE system is integrated with the electronic medical record (EMR) via a third-party portal that is routinely used by clinicians for visual EKG review and simple quantitative measurements.
+												MUSE-derived EKG parameters were previously leveraged in machine learning-based risk assessment.7 Briefly, each XML record included acquisition metadata (date, site, and device) and a comprehensive set of waveform-derived parameters automatically computed by the GE Marquette 12SL algorithm and the MUSE Measurement Matrix schema. Parameters reflect timing (e.g., PR interval, QRS duration, QTc), amplitude (e.g., R and T wave voltages), and other morphological features across the standard 12 leads. Some are used routinely by clinicians (e.g., ST elevation height) but many are otherwise unseen given unclear clinical significance (e.g., ST area, PT interval). Per-lead “local” parameters captured lead-specific electrical properties, such as PR interval in Lead I, whereas summary indices averaged across all leads (overall PR interval) are considered as separate “global” features. Together, these rendered a total of 637 structured EKG features. Detailed descriptions of parameter extraction and data field mapping from the MUSE XML architecture are provided (Supplementary Table 1).
+												Each EKG was then linked to the UHHS clinical database containing patient records and longitudinal outcomes. Mortality data were obtained from the Ohio Department of Health Death Registry and merged using unique patient identifiers. For patients who experienced an event (MACE or mortality), the EKG closest to but before the event date was selected. For those who never experienced an event, the most recent follow-up EKG in the system was considered. Patients with incomplete identifiers or missing outcome data were excluded. Patients who had their first EKG on the date of the event (e.g., first EKG in the system was an ST elevation myocardial infarction) were excluded. 
+Table 1 summarizes the characteristics of the total cohort, which included 170,104 unique EKGs as well as subset cohorts of various sizes used in model training. Demographic, vital, and laboratory data were obtained at baseline at the first outpatient (OP) encounter, whereas diagnoses, procedures, events, and medication use were recorded at their first documented occurrence on or after that visit. Diagnoses and procedures were identified based on appropriate international classification of disease (ICD) and current procedural terminology (CPT) codes, respectively. To balance modeling accuracy with computational burden, we limited the final training cohort to a representative subset of 60,000 patients. This decision was based on observations from preliminary experiments showing that the model trained faster with a smaller subset of data without significantly compromising performance (see results). These patient subsets were obtained by first randomly shuffling the full cohort and selecting the first N patient EKGs (Subset 1 N=2,000, Subset 2 N=2,000, and Subset 3 N=60,000), ensuring the patient demographics in each cohort were balanced (Table 1). 
+												The final dataset was used to train and validate the CLAIRE framework. All data handling procedures were conducted under an approved Institutional Review Board (IRB) protocol at University Hospitals Cleveland Medical Center, with patient de-identification in compliance with HIPAA regulations prior to model training [UH IRB #STUDY20220756] Add SEARCH AI IRB expansion once approved
+CLAIRE model design
+CLAIRE (Causal LLM abnormality Interpretation for Risk Estimation) is a twostage framework consisting of CLAIRE- and CLAIRE-. CLAIRE (Figure 1A) is an endtoend model that utilized all 637 structured EKG parameters to finetune a pre-trained LLM for direct prediction of mortality and MACE. CLAIRE- (Figure 1B) employs the finetuned  model as a frozen backbone to identify the most informative features, train a compact secondary predictor, and generate connections between selected features and outcomes.
+CLAIRE-: End-to-End LLM Pipeline
+CLAIRE- (Figure 1A) leveraged the entire set of 637 EKG features as direct input to learn associations between structured EKG features and cardiovascular outcomes through end-to-end training without manual intervention, allowing the model automatically learn the most relevant patterns in the data that contribute to outcomes. The first stage of the pipeline utilized an open-source distillation of the chain-of-thought reasoning model, DeepSeek-R125, into a smaller 8 billion parameter Qwen3 LLM (DeepSeek-R1-0528-Qwen3-8B).26 Subsequently, potential abnormalities within each lead group are then identified through structured prompting strategies wherein domain-specific templates are used to condition the model with contextual cues which included anatomical grouping of leads (e.g., inferior, anterior) and their known associations with pathological patterns. These structured prompts, constructed and validated with the assistance of board-certified cardiologists, guided the LLM to emulate clinical reasoning patterns rather than free-form inference. The LLM output at this stage included binary abnormality flags, descriptive interpretations, and lead-specific explanations. In the second stage, the LLM was fine-tuned on all 637 features to perform supervised prediction of both all-cause mortality and MACE. The model then generated a risk prediction as well as a free-text rationale based on the detected patterns. Rationales were used as intermediate reasoning steps (Figure 2) to articulate how specific EKG abnormalities may contribute to downstream outcomes such as MACE or mortality. These explanations were reviewed by expert clinicians to ensure clinical plausibility and were incorporated into the iterative refinement of the model.
+CLAIRE-: Feature Selection & Causal Explanation
+CLAIRE- (Figure 1B) is designed to distill the model’s reasoning into a compact, interpretable representation that links key EKG features to clinical outcomes. The fine-tuned CLAIRE- is used as a frozen backbone to evaluate feature relevance across all 637 EKG inputs. Using internal attention signals, gradient-based saliency maps that highlight input sensitivity, and token-level attribution scores derived from CLAIRE- model’s output probabilities,22-24 CLAIRE applies a large language model (LLM)-based reasoning module to systematically rank feature importance (top-N-ranked) and selects a subset from which it constructs a causal flowchart that maps the relationships between the selected features, their intermediate physiological implications, and the downstream outcomes of MACE and mortality.. The LLM synthesized these interpretability signals and generated structured justifications for each ranked feature subset, which were then reviewed and validated by board-certified cardiologists to ensure clinical relevance and consistency with domain expertise. The hierarchy is generated through promptguided inference in which the model synthesizes domainconsistent causal hypotheses (e.g., “Enlarged QRS → Left Ventricular Hypertrophy → Heart Failure → Mortality”) that align with established cardiovascular mechanisms.
+Model Training:
+All model training was performed on a single NVIDIA A100 GPU using PyTorch and Hugging Face packages and standard deep learning protocols. Pilot fine-tuning experiments were first performed using smaller subsets of the total cohort (Table 1) of 2,000, 20,000, and 60,000 structured EKG datasets to find a balance between accuracy and computational burden (see results). Ultimately, the 60,000 EKG cohort was selected  randomly for full model training and causal inference. Of these, 50,000 were used for model development where data were split into training and internal validation sets using an 80:20 ratio. The remaining 10,000 EKGs served as an independent holdout test set for final evaluation. CLAIRE- was first fine-tuned on the all 637 features to predict mortality and MACE. For reference, this model took ~11 days to fine-tune on a single A100 GPU. Following CLAIRE-’s evaluation, the CLAIRE- framework was employed to identify the most informative features and link them to outcomes. To further assess the robustness and generalizability of the feature subsets identified by CLAIRE-, we conducted a secondary fine-tuning of the CLAIRE- model using only the top-ranked features selected for each outcome. Specifically, two new derivative models were trained: one using the top 71 and 73 features associated with MACE and mortality, respectively (hereafter referred to as CLAIRE-[M73]), and another using a more compact 50-feature subset for both outcomes (referred to as CLAIRE-[M50]). These two versions serve as distilled variants of the original  model, optimized for interpretability and parameter efficiency. Both were re-evaluated on the same hold-out test set to benchmark predictive performance relative to the full-feature CLAIRE- baseline. All feature selections and causal graph interpretations underwent human validation by board-certified cardiologists from the University Hospitals Harrington Heart and Vascular Institute to verify the clinical validity and interpretability of the LLM-generated results.
+Statistical Analysis and Model Evaluation
+	Model performance was evaluated using standard metrics, with the area under the receiver operating characteristic curve (AUROC) as the primary performance discriminator. Secondary metrics included accuracy, precision, recall, specificity, and F1 score. Performance was compared across the all-feature CLAIRE- model, feature reduced CLAIRE-[M73] and CLAIRE-[M50] variants. To contextualize CLAIRE performance, a foundational Transformerbased architecture27 model was trained and evaluated using the same data splits and structured inputs. All causal graph outputs from CLAIRE-β were independently reviewed by boardcertified cardiologists to confirm their clinical validity.
+Results:
+Model Performance for Prediction Tasks
+Initial pipeline testing and fine-tuning experiments yielded accuracy/AUROC (averaged between MACE and mortality predictions) for subset cohorts of 2,000 (0.915/0.900), 20,000 (0.896/0.875), and 60,000 (0.915/0.921). As increasing the cohort size did not significantly impact model performance, the 60,000 cohort was selected for full model training and inference to reduce computation time.
+We evaluated the performance of the all-feature baseline model, CLAIRE-, and feature-reduced variants CLAIRE-[M50] and CLAIRE-[M73] (Table 2). The number of and specific features used in each model were those selected by CLAIRE- as described above. Using all EKG features yielded the highest performance, with 0.97 accuracy and 0.98 AUROC for MACE, and 0.86 accuracy and 0.86 AUROC for mortality. This established a reference point for the model’s upper-bound performance which declined only modestly with feature reduction: CLAIRE-[M73] reached accuracy of 0.94 (MACE) and 0.84 (mortality), with corresponding AUROCs of 0.91 and 0.86, respectively. CLAIRE-[M50] had further reduction in performance, especially in mortality prediction, where AUROC dropped to 0.76, whereas MACE prediction remained relatively robust (AUROC 0.90). In comparison, the foundational Transformer-based model achieved AUROC scores of 0.82 for MACE and 0.83 for Mortality, both notably lower than those of CLAIRE- and its feature reduced variants.
+Mean accuracy, sensitivity, and specificity were evaluated for all CLAIRE models (Figure 3). The all-feature model yielded the highest mean accuracy (0.915), mean sensitivity (0.895), and mean specificity (0.945). Relatively modest reductions in accuracy and specificity were seen in feature reduced models whereas sensitivity was most prominently decreased, most likely due to reduced discrimination of all-cause mortality with feature reduction. ROC curves comparing the M50 and M73 variants (Figure 4) quantify the discriminative capability of these models. For MACE prediction, the AUROC decreased modestly (0.91 to 0.90) with the feature reduction, whereas for all-cause mortality, AUROC was more negatively impacted (0.81 to 0.76).
+To assess feature-reduced model performance among age and gender-specific subgroups, MACE and Mortality AUROC scores for CLAIRE-α[M73] and CLAIRE-α[M50] were binned accordingly (Figure 5A). CLAIRE-α[M73] has consistently stronger performance than CLAIRE-α[M50], particularly in younger patients. Notably, CLAIRE-α[M50] has a prominent decline in MACE accuracy with increasing age, especially for individuals over 70. For mortality prediction, CLAIRE-α[M50] exhibits degraded performance most prominent in the youngest (30-39) and oldest (80-89) ranges.
+Explanation of Predictions using Pathophysiological Patterns
+Using the featureselection backbone of CLAIRE, hierarchical relationships between EKGderived features, intermediate pathophysiological mechanisms, and downstream outcomes of MACE and mortality were extracted (Supplemental Table 2 and Figure 6). Each major category such as conduction delay, ventricular hypertrophy, or ischemic abnormality was further divided into clinically meaningful subclasses. For each subclass, CLAIRE identified the number of contributing EKG features, representative examples, and the type of associated risk. The distribution of feature associations (Figure 6A) reveals that conductionrelated abnormalities, including bundle branch block (BBB) and QRScomplex widening, contribute the largest number of causally linked features. Ventricular hypertrophy and repolarization irregularities also show strong associations, particularly with mortality risk. Visualization of the causal chain for a representative patient is provided for clarity and interpretation (Figure 6B).
+Discussion:
+Clinical medicine often seeks mechanistic explanation to guide interpretability and clinical decision making. The “black-box” architecture of many AI models that lack this transparency has likely limited their adoption in clinical workflows. In this study, we presented CLAIRE, a causally-explainable AI framework using EKG parameters to predict cardiovascular outcomes. Beyond achieving strong predictive performance, this platform identified individual feature-level markers and linked them to outcomes through physiologically understandable causal structures. 
+Notably, most prior EKG-based deep learning models utilized raw waveform data. Though data in this form essentially carries all available (including potentially “hidden”) information within the EKG, specialized signal preprocessing pipelines are often required, model training can be computationally demanding, and the resulting models can be difficult to interpret. In contrast, CLAIRE leverages only structured numerical parameters (such as PR interval, ST height, QRS width, etc.) that are automatically derived by the clinical GE MUSE system on upload of the source EKG. Since these data elements are routinely captured in many health systems utilizing MUSE or other similar software, they can be readily downloaded and utilized without much data preprocessing. Additionally, since small subset of these parameters already relate to features that a clinician would use to interpret an EKG (e.g., ST elevation), this also makes explanation by the predicting AI model more intuitive. Though this data structure has been used before in EKG-based machine learning tasks,7 to our knowledge, this study represents the first application of this data structure to training explainable AI models.
+Another advantage of our approach is input feature reduction and selection, which would be difficult to achieve with waveform-based models. By distilling the full 637-parameter set into smaller subsets of 50 and 73 features – as selected by the LLM after initial fine-tuning on outcomes from our dataset and prior to further fine-tuning – the model experienced only modest reductions in performance for MACE prediction, with a more noticeable effect on mortality when using the smallest feature set. This finding suggests that a compact, physiologically coherent feature set can maintain clinically meaningful predictive capability while easing the computational demands of model training and inference. Furthermore, reduced feature models may enhance interpretability by focusing attention on the most influential parameters. However, there are other trade-offs to feature reduction, particularly when comparing performance among gender and age specific subgroups. Feature selection itself may represent a tunable hyperparameter for models using the CLAIRE architecture which can be adjusted depending on the clinical cohort under investigation. 
+Though CLAIRE performed strongly when forecasting MACE, mortality predictions were generally less accurate, likely reflecting the inherent challenges of using EKG data alone to anticipate all-cause death. Many deaths are driven by non-cardiovascular conditions such as malignancy, infection, or trauma and are often not reflected in electrocardiographic features. Context is important when interpreting EKG-based prognostic models and integrating additional data modalities such as laboratory results, imaging, and other clinical data would likely further improve prediction tasks.
+The causal graphs produced by CLAIRE- highlighted conduction abnormalities, ventricular hypertrophy, and repolarization irregularities as some of the most influential features driving risk predictions. These physiologically meaningful patterns may suggest potential applications beyond prognostication. Similar architecture models may leverage these EKG-derived features to predicting LV function, hypertrophic cardiomyopathy, or other such use cases that have been previously explored but with the added benefit of explainability.
+We acknowledge several limitations in the present study. The dataset was derived from a large single healthcare system comprising the Northeast Ohio region, which may limit generalizability. Further, our framework readily accepts data generated by GE MUSE which, though integrated in many health systems across the US, is not universally available. Parameter extraction at institutions without such a system would need to generate their own pipelines for parameter extraction from waveform data. Though using numerically extracted parameters, some of which have readily recognizable clinical relevance, improves interpretability and maintains strong predictive performance, this approach may be less capable of uncovering or explaining hidden patterns that may also have predictive capability. Lastly, causal frameworks were utilized to explain rather than directly improve predictions. Though accuracy was already high, a future study may focus on utilizing causal inference to improve model performance.
+Conclusion
+CLAIRE, a causally-explainable artificial intelligence framework using EKG parameters to predict cardiovascular outcomes achieved strong predictive performance while also linking individual EKG features to physiological meaningful concepts to downstream clinical outcomes. LLM-guided identification of key feature subsets conserved computational resources with only a modest reduction in predictive accuracy, suggesting that compact models could be viable for real-world clinical application. Combining predictive strength with causal explainability may lay the groundwork for future AI models that not only forecast outcomes but also can elucidate and explain potentially novel physiologic mechanisms underlying their predictions. This study represents a step toward mechanistic transparency and may help address a critical gap in many prior EKG-based AI models, enhancing clinician trust and perhaps facilitating adoption into clinical workflows.
+Table 1. Patient demographics and clinical details for the total cohort of 170,104 individuals and subset cohorts of 2,000, 20,000, and 60,000 patients used for model training.
+CHARACTERISTIC
+TOTAL
+SUBSET 1
+SUBSET 2
+SUBSET 3
+Sample Size
+N = 170,104 
+N = 2,000
+N = 20,000
+N = 60,000
+Demographics
+Age (years)
+60.2 ± 21.7
+60.3 ± 21.7
+60.2 ± 21.7
+63.3 ± 18.7
+Weight (kg)
+85.0 ± 26.9
+83.6 ± 23.7
+83.8 ± 23.7
+85.2 ± 24.0
+BMI (kg/m2)
+29.2 ± 8.1
+1.67 ± 0.12
+1.67 ± 0.12
+30.4 ± 7.8
+Height (m)
+1.67 ± 0.12
+29.1 ± 8.0
+29.1 ± 7.8
+1.67 ± 0.10
+Sex:
+Female
+102,146 (60.0%)
+1212 (60.6%)
+12,070 (60.4%)
+40,700 (67.8%)
+Male
+67,913 (39.9%)
+785 (39.2%)
+7,923 (39.6%)
+19,282 (32.1%)
+Other
+45 (0.0%)
+3 (0.1%)
+7 (0%)
+18 (0.0%)
+Race/Ethnicity:
+White
+116,284 (68.4%)
+1,370 (68.5%)
+13,706 (68.5%)
+32,640 (54.4%)
+Black or African American
+45,095 (26.5%)
+527 (26.4%)
+5,287 (26.4%)
+25,765 (42.9%)
+Asian
+825 (0.5%)
+10 (0.5%)
+71 (0.4%)
+147 (0.2%)
+Multiracial
+282 (0.2%)
+3 (0.1%)
+38 (0.2%)
+66 (0.1%)
+American Indian/Alaska Native
+223 (0.1%)
+3 (0.1%)
+37 (0.2%)
+62 (0.1%)
+Other
+7,395 (4.3%)
+87 (4.3%)
+861 (4.3%)
+1,320 (2.2%)
+Vital Signs:
+Systolic Blood Pressure (mmHg)
+130 ± 21
+131 ± 22
+130 ± 21
+133 ± 21
+Diastolic Blood Pressure (mmHg)
+77 ± 13
+78 ± 13
+77 ± 13
+78 ± 12
+Laboratory Values:
+Triglycerides (mg/dL)
+137.4 ± 120.4
+138.0 ± 115.7
+134.8 ± 104.7
+131.9 ± 105.6
+LDL (mg/dL)
+101.9 ± 36.5
+100.6 ± 35.7
+102.4 ± 36.2
+101.6 ± 35.8
+HDL (mg/dL)
+54.0 ± 17.6
+53.0 ± 17.3
+54.0 ± 17.6
+55.1 ± 17.9
+Hemoglobin A1C (%)
+6.7 ± 1.7
+6.7 ± 1.9
+6.6 ± 1.7
+6.7 ± 1.8
+Creatinine (mg/dL)
+0.97 ± 0.83
+0.96 ± 0.66
+0.97 ± 0.82
+1.00 ± 0.96
+Diagnoses and Procedures:
+Current Smoker
+3,783 (2.2%)
+61 (3%)
+486 (2.4%)
+1,254 (2.1%)
+Former Smoker
+3,354 (2.0%)
+43 (2.1%)
+400 (2%)
+916 (1.5%)
+Dyslipidemia
+66,246 (38.9%)
+812 (40.6%)
+7,763 (38.8%)
+25,277 (42.1%)
+Diabetes Mellitus
+28,986 (17.0%)
+357 (17.9%)
+3,328 (16.6%)
+11,653 (19.4%)
+Coronary Artery Disease
+24,308 (14.3%)
+296 (14.8%)
+2,889 (14.4%)
+8,830 (14.7%)
+Heart Failure
+12,715 (7.5%)
+158 (7.9%)
+1,532 (7.7%)
+5,352 (8.9%)
+Myocardial Infarction
+8,415 (4.9%)
+102 (5.1%)
+1,035 (5.2%)
+3,533 (5.9%)
+PCI
+5,854 (3.4%)
+68 (3.4%)
+725 (3.6%)
+2,073 (3.5%)
+Stroke
+4,648 (2.7%)
+41 (2.0%)
+535 (2.7%)
+1,989 (3.3%)
+CABG
+3,477 (2.0%)
+44 (2.2%)
+428 (2.1%)
+1,245 (2.1%)
+MACE and Mortality
+Mortality
+30,739 (18.1%)
+377 (18.9%)
+3,622 (18.1%)
+11,062 (18.4%)
+5-Point MACE
+43,107 (25.3%)
+518 (25.9%)
+5,087 (25.4%)
+15,986 (26.6%)
+4-Point MACE
+39,744 (23.4%)
+469 (23.4%)
+4,664 (23.3%)
+14,589 (24.3%)
+3-Point MACE
+37,052 (21.8%)
+446 (22.3%)
+4,351 (21.8%)
+13,697 (22.8%)
+Medication Use
+Statins
+56,643 (33.3%)
+720 (36%)
+6,739 (33.7%)
+21,011 (35.0%)
+Diuretics
+49,606 (29.2%)
+578 (28.9%)
+5,799 (29%)
+19,443 (32.4%)
+Beta-Blockers
+48,371 (28.4%)
+566 (28.3%)
+5,764 (28.8%)
+17,561 (29.3%)
+Calcium Channel Blockers
+40,801 (24.0%)
+500 (25%)
+4,786 (23.9%)
+16,752 (27.9%)
+ACEi
+37,251 (21.9%)
+472 (23.6%)
+4,481 (22.4%)
+13,555 (22.6%)
+ARB
+23,496 (13.8%)
+294 (14.7%)
+2,762 (13.8%)
+8,969 (14.9%)
+MRA
+8,259 (4.9%)
+91 (4.6%)
+950 (4.8%)
+3,080 (5.1%)
+Potassium Sparing Diuretics
+5,759 (3.4%)
+65 (3.2%)
+665 (3.3%)
+2,751 (4.6%)
+GLP-1R Agonists
+5,317 (3.1%)
+63 (3.1%)
+619 (3.1%)
+2,090 (3.5%)
+ARNi
+4,960 (2.9%)
+64 (3.2%)
+584 (2.9%)
+1,919 (3.2%)
+SGLT2i
+4,486 (2.6%)
+57 (2.9%)
+514 (2.6%)
+1,615 (2.7%)
+PCSK9i
+758 (0.4%)
+9 (0.4%)
+79 (0.4%)
+314 (0.5%)
+Insulin
+22,882 (13.5%)
+282 (14.1%)
+2,724 (13.6%)
+8,904 (14.8%)
+CABG = coronary artery bypass grafting; PCI = percutaneous coronary intervention; MACE = major adverse cardiovascular events; ACEi = angiotensin-converting enzyme inhibitors; ARB = angiotensin II receptor blocker; GLP-1R = glucagon-like peptide-1receptor; ARNi = angiotensin receptor-neprilysin inhibitor; SGLT2i = sodium-glucose cotransporter-2 inhibitor; PCSK9i = proprotein convertase subtilisin/kexin type 9 inhibitor; MRA=mineralocorticoid receptor antagonists
+Figure 1 CLAIRE-α and CLAIRE-β pipeline architectures. (A) CLAIRE-α Stage I uses an LLM (DeepSeek-0528-Qwen-8B) to detect lead-specific abnormalities via structured prompting. Stage II fine-tunes the same model to predict MACE and all-cause mortality using the detected abnormalities, while providing causal, patient-specific diagnostic explanations. (B) CLAIRE-β Stage I uses an all-feature fine-tuned version of the native DeepSeek model to identify the top-N most predictive features for MACE and all-cause mortality. Stage II applies the same fine-tuned model to generate clinically grounded causal relationships between the selected features and outcomes.
+Figure 2. Traceable causal pathways from individual EKG abnormalities using CLAIRE. Features are selected using fine-tuned LLM inference with structured prompting. The model is then prompted to tie each feature abnormality into prediction results as an explanatory step. In this example, left bundle branch block patterns identified in leads aVR and II are interpreted as evidence of electrical dysynchrony and impaired LV contraction, which are then linked to increased risk of MACE. Similarly, hypertrophic features in V2 and III are mapped to abnormal pressure conditions that culminate in mortality or cardiac events. 
+Table 2. Performance comparison of for CLAIRE-α (all features) and two feature reduced models CLAIRE-α[M50] and CLAIRE-α[M73] for predicting MACE events and all-cause mortality. All metrics except AUROC are computed at a fixed decision threshold. 
+CLAIRE-α
+CLAIRE-α[M73]
+CLAIRE-α[M50]
+MACE
+Mortality
+MACE
+Mortality
+MACE
+Mortality
+Accuracy
+0.97
+0.86
+0.94
+0.84
+0.92
+0.84
+AUROC
+0.98
+0.86
+0.91
+0.86
+0.90
+0.76
+Precision
+0.90
+0.79
+0.96
+0.65
+0.93
+0.65
+Recall
+1.0
+0.79
+0.89
+0.89
+0.88
+0.68
+F1 Score
+0.95
+0.79
+0.83
+0.83
+0.83
+0.72
+Sensitivity
+1.0
+0.79
+0.96
+0.89
+0.91
+0.88
+Specificity
+0.96
+0.93
+0.94
+0.84
+0.92
+0.84
+Figure 3. Comparison of mean accuracy, sensitivity, and specificity for CLAIRE-α (all features) and two feature reduced models CLAIRE-α[M50] and CLAIRE-α[M73].
+Figure 4. ROC discrimination curves for CLAIRE. MACE ROC curves for CLAIRE-α feature reduced variants M50 (green) and M73 (orange) are presented for MACE (left) and Mortality (right) The dashed diagonal denotes a random classifier. Curves are computed by sweeping the decision threshold over predicted probabilities; larger area indicates better discrimination.
+Figure 5. Discriminatory performance of feature reduced models by age and gender. Bars show AUROC by 10-year age group intervals for females (green) and males (blue) for MACE (left) and mortality (right) as predicted by CLAIRE-α[M73] (top) and CLAIRE-α[M50] (bottom). Higher bars indicate better model performance.
+Figure 6. EKG features per causal subclass and causal hierarchy of pathophysiological patterns. (A) Counts are presented for causal subclass contributing to MI or mortality risk. Each row represents a causal subclass (e.g., “Bundle Branch Block Patterns”), whereas the x-axis denotes how many individual features (e.g., QRS_Area_V1, PP_Duration_III) are linked to that subclass. These subclasses are derived from clinical co-occurrence patterns, and the feature count reflects the strength of statistical or heuristic association. (B) Flowchart illustrating connection of individual EKG features (blue) to pathology (orange) to outcomes (pink). Arrows represent causal or contributory influence. 
+Supplemental Table 1: Summary of EKG Lead Feature Labels. Lead specific feature labels provided by the GE MUSE system. Each row denotes a distinct type of measurement or metadata, including binary bit flags (e.g., BitFlag_V1) and waveform measurements (e.g., MaxST_V5).
+Demographics
+Lead_I
+Lead_II
+Lead_III
+Lead_V1
+Lead_V2
+Lead_V3
+Lead_V4
+Lead_V5
+Lead_V6
+Lead_aVF
+Lead_aVL
+Lead_aVR
+Race
+BitFlag_I
+BitFlag_II
+BitFlag_III
+BitFlag_V1
+BitFlag_V2
+BitFlag_V3
+BitFlag_V4
+BitFlag_V5
+BitFlag_V6
+BitFlag_aVF
+BitFlag_aVL
+BitFlag_aVR
+Ethnicity
+MaxST_I
+MaxST_II
+MaxST_III
+MaxST_V1
+MaxST_V2
+MaxST_V3
+MaxST_V4
+MaxST_V5
+MaxST_V6
+MaxST_aVF
+MaxST_aVL
+MaxST_aVR
+Gender
+Max_R_Ampl_I
+Max_R_Ampl_II
+Max_R_Ampl_III
+Max_R_Ampl_V1
+Max_R_Ampl_V2
+Max_R_Ampl_V3
+Max_R_Ampl_V4
+Max_R_Ampl_V5
+Max_R_Ampl_V6
+Max_R_Ampl_aVF
+Max_R_Ampl_aVL
+Max_R_Ampl_aVR
+Max_S_Ampl_I
+Max_S_Ampl_II
+Max_S_Ampl_III
+Max_S_Ampl_V1
+Max_S_Ampl_V2
+Max_S_Ampl_V3
+Max_S_Ampl_V4
+Max_S_Ampl_V5
+Max_S_Ampl_V6
+Max_S_Ampl_aVF
+Max_S_Ampl_aVL
+Max_S_Ampl_aVR
+MinST_I
+MinST_II
+MinST_III
+MinST_V1
+MinST_V2
+MinST_V3
+MinST_V4
+MinST_V5
+MinST_V6
+MinST_aVF
+MinST_aVL
+MinST_aVR
+PFull_Area_I
+PFull_Area_II
+PFull_Area_III
+PFull_Area_V1
+PFull_Area_V2
+PFull_Area_V3
+PFull_Area_V4
+PFull_Area_V5
+PFull_Area_V6
+PFull_Area_aVF
+PFull_Area_aVL
+PFull_Area_aVR
+PP_Area_I
+PP_Area_II
+PP_Area_III
+PP_Area_V1
+PP_Area_V2
+PP_Area_V3
+PP_Area_V4
+PP_Area_V5
+PP_Area_V6
+PP_Area_aVF
+PP_Area_aVL
+PP_Area_aVR
+PP_Duration_I
+PP_Duration_II
+PP_Duration_III
+PP_Duration_V1
+PP_Duration_V2
+PP_Duration_V3
+PP_Duration_V4
+PP_Duration_V5
+PP_Duration_V6
+PP_Duration_aVF
+PP_Duration_aVL
+PP_Duration_aVR
+PP_PeakAmpl_I
+PP_PeakAmpl_II
+PP_PeakAmpl_III
+PP_PeakAmpl_V1
+PP_PeakAmpl_V2
+PP_PeakAmpl_V3
+PP_PeakAmpl_V4
+PP_PeakAmpl_V5
+PP_PeakAmpl_V6
+PP_PeakAmpl_aVF
+PP_PeakAmpl_aVL
+PP_PeakAmpl_aVR
+PP_PeakTime_I
+PP_PeakTime_II
+PP_PeakTime_III
+PP_PeakTime_V1
+PP_PeakTime_V2
+PP_PeakTime_V3
+PP_PeakTime_V4
+PP_PeakTime_V5
+PP_PeakTime_V6
+PP_PeakTime_aVF
+PP_PeakTime_aVL
+PP_PeakTime_aVR
+P_Area_I
+P_Area_II
+P_Area_III
+P_Area_V1
+P_Area_V2
+P_Area_V3
+P_Area_V4
+P_Area_V5
+P_Area_V6
+P_Area_aVF
+P_Area_aVL
+P_Area_aVR
+P_Duration_I
+P_Duration_II
+P_Duration_III
+P_Duration_V1
+P_Duration_V2
+P_Duration_V3
+P_Duration_V4
+P_Duration_V5
+P_Duration_V6
+P_Duration_aVF
+P_Duration_aVL
+P_Duration_aVR
+P_OnsetAmpl_I
+P_OnsetAmpl_II
+P_OnsetAmpl_III
+P_OnsetAmpl_V1
+P_OnsetAmpl_V2
+P_OnsetAmpl_V3
+P_OnsetAmpl_V4
+P_OnsetAmpl_V5
+P_OnsetAmpl_V6
+P_OnsetAmpl_aVF
+P_OnsetAmpl_aVL
+P_OnsetAmpl_aVR
+P_PeakAmpl_I
+P_PeakAmpl_II
+P_PeakAmpl_III
+P_PeakAmpl_V1
+P_PeakAmpl_V2
+P_PeakAmpl_V3
+P_PeakAmpl_V4
+P_PeakAmpl_V5
+P_PeakAmpl_V6
+P_PeakAmpl_aVF
+P_PeakAmpl_aVL
+P_PeakAmpl_aVR
+P_PeakTime_I
+P_PeakTime_II
+P_PeakTime_III
+P_PeakTime_V1
+P_PeakTime_V2
+P_PeakTime_V3
+P_PeakTime_V4
+P_PeakTime_V5
+P_PeakTime_V6
+P_PeakTime_aVF
+P_PeakTime_aVL
+P_PeakTime_aVR
+QRS_Area_I
+QRS_Area_II
+QRS_Area_III
+QRS_Area_V1
+QRS_Area_V2
+QRS_Area_V3
+QRS_Area_V4
+QRS_Area_V5
+QRS_Area_V6
+QRS_Area_aVF
+QRS_Area_aVL
+QRS_Area_aVR
+QRS_Balance_I
+QRS_Balance_II
+QRS_Balance_III
+QRS_Balance_V1
+QRS_Balance_V2
+QRS_Balance_V3
+QRS_Balance_V4
+QRS_Balance_V5
+QRS_Balance_V6
+QRS_Balance_aVF
+QRS_Balance_aVL
+QRS_Balance_aVR
+QRS_Deflection_I
+QRS_Deflection_II
+QRS_Deflection_III
+QRS_Deflection_V1
+QRS_Deflection_V2
+QRS_Deflection_V3
+QRS_Deflection_V4
+QRS_Deflection_V5
+QRS_Deflection_V6
+QRS_Deflection_aVF
+QRS_Deflection_aVL
+QRS_Deflection_aVR
+QRSint_I
+QRSint_II
+QRSint_III
+QRSint_V1
+QRSint_V2
+QRSint_V3
+QRSint_V4
+QRSint_V5
+QRSint_V6
+QRSint_aVF
+QRSint_aVL
+QRSint_aVR
+Q_Area_I
+Q_Area_II
+Q_Area_III
+Q_Area_V1
+Q_Area_V2
+Q_Area_V3
+Q_Area_V4
+Q_Area_V5
+Q_Area_V6
+Q_Area_aVF
+Q_Area_aVL
+Q_Area_aVR
+Q_Duration_I
+Q_Duration_II
+Q_Duration_III
+Q_Duration_V1
+Q_Duration_V2
+Q_Duration_V3
+Q_Duration_V4
+Q_Duration_V5
+Q_Duration_V6
+Q_Duration_aVF
+Q_Duration_aVL
+Q_Duration_aVR
+Q_PeakAmpl_I
+Q_PeakAmpl_II
+Q_PeakAmpl_III
+Q_PeakAmpl_V1
+Q_PeakAmpl_V2
+Q_PeakAmpl_V3
+Q_PeakAmpl_V4
+Q_PeakAmpl_V5
+Q_PeakAmpl_V6
+Q_PeakAmpl_aVF
+Q_PeakAmpl_aVL
+Q_PeakAmpl_aVR
+Q_PeakTime_I
+Q_PeakTime_II
+Q_PeakTime_III
+Q_PeakTime_V1
+Q_PeakTime_V2
+Q_PeakTime_V3
+Q_PeakTime_V4
+Q_PeakTime_V5
+Q_PeakTime_V6
+Q_PeakTime_aVF
+Q_PeakTime_aVL
+Q_PeakTime_aVR
+RP_Area_I
+RP_Area_II
+RP_Area_III
+RP_Area_V1
+RP_Area_V2
+RP_Area_V3
+RP_Area_V4
+RP_Area_V5
+RP_Area_V6
+RP_Area_aVF
+RP_Area_aVL
+RP_Area_aVR
+RP_Duration_I
+RP_Duration_II
+RP_Duration_III
+RP_Duration_V1
+RP_Duration_V2
+RP_Duration_V3
+RP_Duration_V4
+RP_Duration_V5
+RP_Duration_V6
+RP_Duration_aVF
+RP_Duration_aVL
+RP_Duration_aVR
+RP_PeakAmpl_I
+RP_PeakAmpl_II
+RP_PeakAmpl_III
+RP_PeakAmpl_V1
+RP_PeakAmpl_V2
+RP_PeakAmpl_V3
+RP_PeakAmpl_V4
+RP_PeakAmpl_V5
+RP_PeakAmpl_V6
+RP_PeakAmpl_aVF
+RP_PeakAmpl_aVL
+RP_PeakAmpl_aVR
+RP_PeakTime_I
+RP_PeakTime_II
+RP_PeakTime_III
+RP_PeakTime_V1
+RP_PeakTime_V2
+RP_PeakTime_V3
+RP_PeakTime_V4
+RP_PeakTime_V5
+RP_PeakTime_V6
+RP_PeakTime_aVF
+RP_PeakTime_aVL
+RP_PeakTime_aVR
+R_Area_I
+R_Area_II
+R_Area_III
+R_Area_V1
+R_Area_V2
+R_Area_V3
+R_Area_V4
+R_Area_V5
+R_Area_V6
+R_Area_aVF
+R_Area_aVL
+R_Area_aVR
+R_Duration_I
+R_Duration_II
+R_Duration_III
+R_Duration_V1
+R_Duration_V2
+R_Duration_V3
+R_Duration_V4
+R_Duration_V5
+R_Duration_V6
+R_Duration_aVF
+R_Duration_aVL
+R_Duration_aVR
+R_PeakAmpl_I
+R_PeakAmpl_II
+R_PeakAmpl_III
+R_PeakAmpl_V1
+R_PeakAmpl_V2
+R_PeakAmpl_V3
+R_PeakAmpl_V4
+R_PeakAmpl_V5
+R_PeakAmpl_V6
+R_PeakAmpl_aVF
+R_PeakAmpl_aVL
+R_PeakAmpl_aVR
+R_PeakTime_I
+R_PeakTime_II
+R_PeakTime_III
+R_PeakTime_V1
+R_PeakTime_V2
+R_PeakTime_V3
+R_PeakTime_V4
+R_PeakTime_V5
+R_PeakTime_V6
+R_PeakTime_aVF
+R_PeakTime_aVL
+R_PeakTime_aVR
+SP_Area_I
+SP_Area_II
+SP_Area_III
+SP_Area_V1
+SP_Area_V2
+SP_Area_V3
+SP_Area_V4
+SP_Area_V5
+SP_Area_V6
+SP_Area_aVF
+SP_Area_aVL
+SP_Area_aVR
+SP_Duration_I
+SP_Duration_II
+SP_Duration_III
+SP_Duration_V1
+SP_Duration_V2
+SP_Duration_V3
+SP_Duration_V4
+SP_Duration_V5
+SP_Duration_V6
+SP_Duration_aVF
+SP_Duration_aVL
+SP_Duration_aVR
+SP_PeakAmpl_I
+SP_PeakAmpl_II
+SP_PeakAmpl_III
+SP_PeakAmpl_V1
+SP_PeakAmpl_V2
+SP_PeakAmpl_V3
+SP_PeakAmpl_V4
+SP_PeakAmpl_V5
+SP_PeakAmpl_V6
+SP_PeakAmpl_aVF
+SP_PeakAmpl_aVL
+SP_PeakAmpl_aVR
+SP_PeakTime_I
+SP_PeakTime_II
+SP_PeakTime_III
+SP_PeakTime_V1
+SP_PeakTime_V2
+SP_PeakTime_V3
+SP_PeakTime_V4
+SP_PeakTime_V5
+SP_PeakTime_V6
+SP_PeakTime_aVF
+SP_PeakTime_aVL
+SP_PeakTime_aVR
+STE_I
+STE_II
+STE_III
+STE_V1
+STE_V2
+STE_V3
+STE_V4
+STE_V5
+STE_V6
+STE_aVF
+STE_aVL
+STE_aVR
+STJ_I
+STJ_II
+STJ_III
+STJ_V1
+STJ_V2
+STJ_V3
+STJ_V4
+STJ_V5
+STJ_V6
+STJ_aVF
+STJ_aVL
+STJ_aVR
+STM_I
+STM_II
+STM_III
+STM_V1
+STM_V2
+STM_V3
+STM_V4
+STM_V5
+STM_V6
+STM_aVF
+STM_aVL
+STM_aVR
+S_Area_I
+S_Area_II
+S_Area_III
+S_Area_V1
+S_Area_V2
+S_Area_V3
+S_Area_V4
+S_Area_V5
+S_Area_V6
+S_Area_aVF
+S_Area_aVL
+S_Area_aVR
+S_Duration_I
+S_Duration_II
+S_Duration_III
+S_Duration_V1
+S_Duration_V2
+S_Duration_V3
+S_Duration_V4
+S_Duration_V5
+S_Duration_V6
+S_Duration_aVF
+S_Duration_aVL
+S_Duration_aVR
+S_PeakAmpl_I
+S_PeakAmpl_II
+S_PeakAmpl_III
+S_PeakAmpl_V1
+S_PeakAmpl_V2
+S_PeakAmpl_V3
+S_PeakAmpl_V4
+S_PeakAmpl_V5
+S_PeakAmpl_V6
+S_PeakAmpl_aVF
+S_PeakAmpl_aVL
+S_PeakAmpl_aVR
+S_PeakTime_I
+S_PeakTime_II
+S_PeakTime_III
+S_PeakTime_V1
+S_PeakTime_V2
+S_PeakTime_V3
+S_PeakTime_V4
+S_PeakTime_V5
+S_PeakTime_V6
+S_PeakTime_aVF
+S_PeakTime_aVL
+S_PeakTime_aVR
+TFull_Area_I
+TFull_Area_II
+TFull_Area_III
+TFull_Area_V1
+TFull_Area_V2
+TFull_Area_V3
+TFull_Area_V4
+TFull_Area_V5
+TFull_Area_V6
+TFull_Area_aVF
+TFull_Area_aVL
+TFull_Area_aVR
+TP_Area_I
+TP_Area_II
+TP_Area_III
+TP_Area_V1
+TP_Area_V2
+TP_Area_V3
+TP_Area_V4
+TP_Area_V5
+TP_Area_V6
+TP_Area_aVF
+TP_Area_aVL
+TP_Area_aVR
+TP_Duration_I
+TP_Duration_II
+TP_Duration_III
+TP_Duration_V1
+TP_Duration_V2
+TP_Duration_V3
+TP_Duration_V4
+TP_Duration_V5
+TP_Duration_V6
+TP_Duration_aVF
+TP_Duration_aVL
+TP_Duration_aVR
+TP_PeakAmpl_I
+TP_PeakAmpl_II
+TP_PeakAmpl_III
+TP_PeakAmpl_V1
+TP_PeakAmpl_V2
+TP_PeakAmpl_V3
+TP_PeakAmpl_V4
+TP_PeakAmpl_V5
+TP_PeakAmpl_V6
+TP_PeakAmpl_aVF
+TP_PeakAmpl_aVL
+TP_PeakAmpl_aVR
+TP_PeakTime_I
+TP_PeakTime_II
+TP_PeakTime_III
+TP_PeakTime_V1
+TP_PeakTime_V2
+TP_PeakTime_V3
+TP_PeakTime_V4
+TP_PeakTime_V5
+TP_PeakTime_V6
+TP_PeakTime_aVF
+TP_PeakTime_aVL
+TP_PeakTime_aVR
+T_Area_I
+T_Area_II
+T_Area_III
+T_Area_V1
+T_Area_V2
+T_Area_V3
+T_Area_V4
+T_Area_V5
+T_Area_V6
+T_Area_aVF
+T_Area_aVL
+T_Area_aVR
+T_Duration_I
+T_Duration_II
+T_Duration_III
+T_Duration_V1
+T_Duration_V2
+T_Duration_V3
+T_Duration_V4
+T_Duration_V5
+T_Duration_V6
+T_Duration_aVF
+T_Duration_aVL
+T_Duration_aVR
+T_End_I
+T_End_II
+T_End_III
+T_End_V1
+T_End_V2
+T_End_V3
+T_End_V4
+T_End_V5
+T_End_V6
+T_End_aVF
+T_End_aVL
+T_End_aVR
+T_PeakAmpl_I
+T_PeakAmpl_II
+T_PeakAmpl_III
+T_PeakAmpl_V1
+T_PeakAmpl_V2
+T_PeakAmpl_V3
+T_PeakAmpl_V4
+T_PeakAmpl_V5
+T_PeakAmpl_V6
+T_PeakAmpl_aVF
+T_PeakAmpl_aVL
+T_PeakAmpl_aVR
+T_PeakTime_I
+T_PeakTime_II
+T_PeakTime_III
+T_PeakTime_V1
+T_PeakTime_V2
+T_PeakTime_V3
+T_PeakTime_V4
+T_PeakTime_V5
+T_PeakTime_V6
+T_PeakTime_aVF
+T_PeakTime_aVL
+T_PeakTime_aVR
+T_Special_I
+T_Special_II
+T_Special_III
+T_Special_V1
+T_Special_V2
+T_Special_V3
+T_Special_V4
+T_Special_V5
+T_Special_V6
+T_Special_aVF
+T_Special_aVL
+T_Special_aVR
+Supplemental Table 2. EKG-based risk patterns identified by CLAIRE. Each row corresponds to a specific subclass under a broader pathological category. The “Major Category” indicates the high-level pathology (e.g., conduction delay), “Subclass” names a representative pattern, “# Features” counts how many EKG features were linked to that subclass, “Example Features” lists key representative signals, and “Associated Risk” shows whether the pattern contributes to MACE, Mortality, or both.
+Major Category
+Causal Subclass
+# of Features
+Representative EKG Features
+Clinical Targets
+Bundle Branch Block (BBB)
+Isolated BBB Pattern
+6
+QRS_Area_V1, QRS_Balance_V5, MaxST_V4
+MI, Mortality
+Left Bundle Branch Block (LBBB)
+4
+QRS_Area_V3, QRS_Balance_V4, STJ_V5
+MI, Mortality
+Right Bundle Branch Block (RBBB)
+6
+QRS_Area_V1, QRS_Balance_V5, QRS_Balance_V6
+MI, Mortality
+Prolonged QRS with BBB
+6
+QRS_Area_V1, QRS_Balance_V6, QRS_Duration_V1
+MI, Mortality
+BBB + ST Depression
+6
+MaxST_V3, STJ_V2, QRS_Area_V6
+MI
+BBB + Poor R Wave Progression
+6
+QRS_Balance_V6, PP_PeakAmpl_V2
+MI, Mortality
+LBBB + RBBB Fusion Pattern
+4
+QRS_Area_V3, QRS_Balance_V4
+MI, Mortality
+RBBB + LBBB Fusion Pattern
+4
+QRS_Area_V5, QRS_Balance_V6
+MI
+BBB + Atrial Fibrillation
+6
+PP_Duration_III, PP_PeakAmpl_V5
+MI, Mortality
+BBB + Tachycardia
+6
+STJ_V2, QRS_Area_V6, PP_Duration_V3
+MI, Mortality
+BBB + Poor QRS Morphology
+6
+QRS_Skewness_V1, QRS_Balance_V6
+MI, Mortality
+Atrial Abnormalities
+Atrial Fibrillation + Poor R Wave
+6
+PP_Duration_III, PP_PeakAmpl_V5, STJ_V5
+MI, Mortality
+Atrial Enlargement + ST Depression
+4
+PP_PeakAmpl_V1, MaxST_V4
+MI
+LBBB + Atrial Enlargement
+4
+PP_PeakAmpl_V4, QRS_Area_V3
+MI, Mortality
+RBBB + Atrial Enlargement
+2
+PP_PeakAmpl_V5, QRS_Balance_V5
+MI
+Tachycardia
+Sinus Tachycardia with BBB
+3
+PP_Duration_III, STJ_V5
+MI, Mortality
+Tachycardia + Ischemia
+3
+STJ_V3, MaxST_V4
+MI, Mortality
+RVH + Tachycardia
+1
+QRS_Area_aVR
+Mortality
+Hypertrophy-Related Mechanisms
+LVH + ST Depression
+4
+MaxST_V3, MaxST_V5, PP_Duration_III
+MI
+LVH + Intraventricular Delay
+3
+QRS_Duration_V1, QRS_Area_V3
+MI
+RVH + RBBB / LBBB
+3
+QRS_Area_V1, STJ_V2
+MI, Mortality
+RVH + Inverted T Waves
+2
+TW_Inversion_V1, TW_Amplitude_V3
+MI, Mortality
+Ischemia
+Poor R Wave Progression
+3
+QRS_Progression_V1-3, STJ_V3
+MI, Mortality
+ST Depression + BBB
+5
+STJ_V1–V5, QRS_Balance_V4
+MI
+Global Ischemia + Tachycardia
+4
+STJ_V1–V5, HR_Tachy, QRS_Area_V5
+MI, Mortality
+Lateral Ischemia + LBBB
+4
+STJ_aVL, QRS_Area_V6, QRS_Balance_V5
+MI
+References
+1.	Lin CH, Liu ZY, Chu PH, Chen JS, Wu HH, Wen MS, et al. A multitask deep learning model utilizing electrocardiograms for major cardiovascular adverse events prediction. NPJ Digit Med 2025;8:1. doi: https://doi.org/10.1038/s41746-024-01410-3
+2.	Mayourian J, El-Bokl A, Lukyanenko P, La Cava WG, Geva T, Valente AM, et al. Electrocardiogram-based deep learning to predict mortality in paediatric and adult congenital heart disease. Eur Heart J 2025;46:856-868. doi: https://doi.org/10.1093/eurheartj/ehae651
+3.	Büscher A, Plagwitz L, Yildirim K, Brix TJ, Neuhaus P, Bickmann L, et al. Deep learning electrocardiogram model for risk stratification of coronary revascularization need in the emergency department. European Heart Journal 2025. doi: https://doi.org/10.1093/eurheartj/ehaf254
+4.	Sau A, Pastika L, Sieliwonczyk E, Patlatzoglou K, Ribeiro A, McGurk K, et al. Artificial intelligence enabled electrocardiogram for mortality and ventricular arrhythmia prediction. Europace 2024;26. doi: https://doi.org/10.1093/europace/euae102.560
+5.	Kolk MZH, Ruipérez-Campillo S, Wilde AAM, Knops RE, Narayan SM, Tjong FVY. Prediction of sudden cardiac death using artificial intelligence: Current status and future directions. Heart Rhythm 2025;22:756-766. doi: https://doi.org/10.1016/j.hrthm.2024.09.003
+6.	Naser Jwan A, Lee E, Lopez-Jimenez F, Noseworthy Peter A, Latif Omar S, Friedman Paul A, et al. Artificial Intelligence–Enhanced Electrocardiography Identifies Patients With Normal Ejection Fraction at Risk of Worse Outcomes. JACC: Advances 2024;3:101179. doi: https://doi.org/10.1016/j.jacadv.2024.101179
+7.	Siva Kumar S, Al-Kindi S, Tashtish N, Rajagopalan V, Fu P, Rajagopalan S, et al. Machine learning derived ECG risk score improves cardiovascular risk assessment in conjunction with coronary artery calcium scoring. Frontiers in Cardiovascular Medicine 2022;Volume 9 - 2022. doi: https://doi.org/10.3389/fcvm.2022.976769
+8.	Polcwiartek C, Andersen MP, Christensen HC, Torp-Pedersen C, Sørensen KK, Kragholm K, et al. The Danish Nationwide Electrocardiogram (ECG) Cohort. Eur J Epidemiol 2024;39:325-333. doi: https://doi.org/10.1007/s10654-024-01105-9
+9.	Zhang D, Lan X, Geng S, Zhao Q, Fan S, Feng M, et al. MEETI: A Multimodal ECG Dataset from MIMIC-IV-ECG with Signals, Images, Features and Interpretations; 2025.
+10.	Koscova Z, Li Q, Robichaux C, Junior VM, Ghanta M, Gupta A, et al. The Harvard-Emory ECG Database. medRxiv 2025. doi: https://doi.org/10.1101/2024.09.27.24314503
+11.	Holmstrom L, Chugh H, Nakamura K, Bhanji Z, Seifer M, Uy-Evanado A, et al. An ECG-based artificial intelligence model for assessment of sudden cardiac death risk. Commun Med (Lond) 2024;4:17. doi: https://doi.org/10.1038/s43856-024-00451-9
+12.	Oberdier MT, Neri L, Orro A, Carrick RT, Nobile MS, Jaipalli S, et al. Sudden cardiac arrest prediction via deep learning electrocardiogram analysis. Eur Heart J Digit Health 2025;6:170-179. doi: https://doi.org/10.1093/ehjdh/ztae088
+13.	Sumwiza K, Ribeiro AH, Rushingabigwi G, Bakunzibake P, Twizere C. Evaluation of AI ECG age in the prediction of cardiovascular diseases and risk factors: Exploratory data analysis. J Electrocardiol 2025;93:154123. doi: https://doi.org/10.1016/j.jelectrocard.2025.154123
+14.	Rabinstein AA, Yost MD, Faust L, Kashou AH, Latif OS, Graff-Radford J, et al. Artificial Intelligence-Enabled ECG to Identify Silent Atrial Fibrillation in Embolic Stroke of Unknown Source. J Stroke Cerebrovasc Dis 2021;30:105998. doi: https://doi.org/10.1016/j.jstrokecerebrovasdis.2021.105998
+15.	Chen HY, Lin CS, Fang WH, Lou YS, Cheng CC, Lee CC, et al. Artificial Intelligence-Enabled Electrocardiography Predicts Left Ventricular Dysfunction and Future Cardiovascular Outcomes: A Retrospective Analysis. J Pers Med 2022;12. doi: https://doi.org/10.3390/jpm12030455
+16.	Sangha V, Nargesi AA, Dhingra LS, Khunte A, Mortazavi BJ, Ribeiro AH, et al. Detection of Left Ventricular Systolic Dysfunction From Electrocardiographic Images. Circulation 2023;148:765-777. doi: https://doi.org/10.1161/circulationaha.122.062646
+17.	Nezamabadi K, Sivalokanathan S, Lee J, Tanriverdi T, Chen M, Lu D, et al. Explainable artificial intelligence identifies and localizes left ventricular scar in hypertrophic cardiomyopathy using 12-Lead electrocardiogram. Scientific Reports 2025;15:33918. doi: https://doi.org/10.1038/s41598-025-09282-7
+18.	Chen L, Fu G, Jiang C. Deep learning-derived 12-lead electrocardiogram-based genotype prediction for hypertrophic cardiomyopathy: a pilot study. Ann Med 2023;55:2235564. doi: https://doi.org/10.1080/07853890.2023.2235564
+19.	Amann J, Vetter D, Blomberg SN, Christensen HC, Coffee M, Gerke S, et al. To explain or not to explain?-Artificial intelligence explainability in clinical decision support systems. PLOS Digit Health 2022;1:e0000016. doi: https://doi.org/10.1371/journal.pdig.0000016
+20.	Xu H, Shuttleworth KMJ. Medical artificial intelligence and the black box problem: a view based on the ethical principle of "do no harm". Intelligent Medicine 2024;04:52-57. doi: https://doi.org/doi:10.1016/j.imed.2023.08.001
+21.	Nasarian E, Alizadehsani R, Acharya UR, Tsui K-L. Designing interpretable ML system to enhance trust in healthcare: A systematic review to proposed responsible clinician-AI-collaboration framework. Information Fusion 2024;108:102412. doi: https://doi.org/https://doi.org/10.1016/j.inffus.2024.102412
+22.	Jang J-H, Jo Y-Y, Kang S, Son JM, Lee HS, Kwon J-m, et al. A novel XAI framework for explainable AI-ECG using generative counterfactual XAI (GCX). Scientific Reports 2025;15:23608. doi: https://doi.org/10.1038/s41598-025-08080-5
+23.	Hempel P, Ribeiro AH, Vollmer M, Bender T, Dörr M, Krefting D, et al. Explainable AI associates ECG aging effects with increased cardiovascular risk in a longitudinal population study. npj Digital Medicine 2025;8:25. doi: https://doi.org/10.1038/s41746-024-01428-7
+24.	Katsushika S, Kodera S, Sawano S, Shinohara H, Setoguchi N, Tanabe K, et al. An explainable artificial intelligence-enabled electrocardiogram analysis model for the classification of reduced left ventricular function. Eur Heart J Digit Health 2023;4:254-264. doi: https://doi.org/10.1093/ehjdh/ztad027
+25.	DeepSeek-AI, Guo D, Yang D, Zhang H, Song J, Zhang R, et al. DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning. In; 2025.
+26.	Yang A, Li A, Yang B, Zhang B, Hui B, Zheng B, et al. Qwen3 Technical Report. doi: 10.48550/arXiv.2505.09388. Published online ahead of print.
+27.	Hu R, Chen J, Zhou L. A transformer-based deep neural network for arrhythmia detection using continuous ECG signals. Computers in Biology and Medicine 2022;144:105325. doi: https://doi.org/https://doi.org/10.1016/j.compbiomed.2022.105325

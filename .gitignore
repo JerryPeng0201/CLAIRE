@@ -1,0 +1,7 @@
+# Downloaded Hugging Face / local foundation model weights
+model/weights/DeepSeek-R1-0528-Qwen3-8B/
+
+# Python bytecode caches
+**/__pycache__/
+*.py[cod]
+*$py.class
