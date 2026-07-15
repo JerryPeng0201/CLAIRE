@@ -1,0 +1,259 @@
+1. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+2. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+3. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+4. LBBB -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+5. younger adult (53), Male -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+6. ST elevation -> Q waves / prior MI -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+7. ST depression -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+8. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+9. T-wave abnormality -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+10. T-wave inversion -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+11. T-wave inversion -> LVH -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+12. T-wave inversion -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+13. ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+14. ST elevation -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+15. ST elevation -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+16. T-wave abnormality -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+17. T-wave abnormality -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+18. advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+19. younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+20. atrial enlargement -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
