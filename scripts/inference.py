@@ -464,9 +464,6 @@ def infer_patients(
             max_new_tokens=stage2_max_new_tokens,
         )
 
-        true_mace = int(row.get("3p_MACE_binary", 0)) if "3p_MACE_binary" in row.index else None
-        true_mort = int(row.get("Mortality_Binary", 0)) if "Mortality_Binary" in row.index else None
-
         record = {
             "patient_id": _scalar(patient_id) if not isinstance(patient_id, str) else patient_id,
             "demographics": {
@@ -494,10 +491,6 @@ def infer_patients(
                 "causal_chain": stage2["causal_chain"],
                 "raw_generation": stage2["raw_generation"],
             },
-            "ground_truth": {
-                "3p_MACE_binary": true_mace,
-                "Mortality_Binary": true_mort,
-            },
         }
         results.append(record)
         done_stage2_ids.add(pid_key)
@@ -513,9 +506,8 @@ def infer_patients(
             print(f"  → checkpointed Stage II ({len(results)}/{len(df)}) → {stage2_results_path}")
 
         print(
-            f"  → MACE={stage2['mace_prediction']} "
-            f"(true={true_mace}), Mortality={stage2['mortality_prediction']} "
-            f"(true={true_mort})"
+            f"  → MACE={stage2['mace_prediction']}, "
+            f"Mortality={stage2['mortality_prediction']}"
         )
         # Stage I findings for this patient are only on disk now — not kept in a big dict
 

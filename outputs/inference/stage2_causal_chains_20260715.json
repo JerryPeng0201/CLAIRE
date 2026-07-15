@@ -1,0 +1,443 @@
+{
+  "meta": {
+    "source_file": "/mnt/rds/VipinRDS/VipinRDS/users/jxp1146/projects/UH/github/CLAIRE-Alpha/outputs/inference/inference_results_20260715_093849.json",
+    "created_at": "20260715_114948",
+    "num_patients": 20,
+    "note": "New file only. Original inference JSON was not modified. Chains follow format: reason -> intermediate -> ... -> MACE/Mortality",
+    "chain_format_example": "reason1 -> result/reason1 -> result/reason2 -> MACE/Mortality"
+  },
+  "patients": [
+    {
+      "patient_id": 1,
+      "demographics": {
+        "age": 80,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "bundle branch block",
+        "atrial enlargement"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 408,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\n\n- Age: 79 years\n  - Gender: Female\n  - Weight: 45.5 kg\n  - Height: "
+    },
+    {
+      "patient_id": 2,
+      "demographics": {
+        "age": 69,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 2506,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\n**ST Segment Analysis:**\n  - The ST elevation indicating ischemia. T"
+    },
+    {
+      "patient_id": 3,
+      "demographics": {
+        "age": 91,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave abnormality -> LVH -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave abnormality -> LVH -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "LVH",
+        "atrial enlargement"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 330,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk."
+    },
+    {
+      "patient_id": 4,
+      "demographics": {
+        "age": 83,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "LBBB -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "LBBB -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "LBBB -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "LBBB",
+        "bundle branch block"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 220,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention."
+    },
+    {
+      "patient_id": 5,
+      "demographics": {
+        "age": 53,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "reasoning_chain": "younger adult (53), Male -> limited definitive EKG risk signals -> low predicted risk trajectory -> no MACE/Mortality",
+      "mace_chain": "younger adult (53), Male -> limited definitive EKG risk signals -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "younger adult (53), Male -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 296,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 0** (0 = No, 1 = Yes)\n   - Despite some findings, the overall risk profile appears manageable with standard care.\n\n2. **Mortality Prediction: 0** (0 = No, 1 = Yes)\n   - Current findings do not suggest significantly elevated mortality risk."
+    },
+    {
+      "patient_id": 6,
+      "demographics": {
+        "age": 77,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> Q waves / prior MI -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "Q waves / prior MI",
+        "acute MI pattern"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 1470,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  - The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  - The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\nAdditionally, based on the EKG findings:\n\n3. **T wave inversions"
+    },
+    {
+      "patient_id": 7,
+      "demographics": {
+        "age": 81,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST depression -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST depression -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST depression -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST depression",
+        "T-wave inversion",
+        "LBBB",
+        "RBBB"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 2783,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\nThe EKG findings:\n\n- Atrial fibrillation detected. This finding requ"
+    },
+    {
+      "patient_id": 8,
+      "demographics": {
+        "age": 77,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "LBBB"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 2320,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention.\n\nThe EKG abnormalities identified in Stage I suggest significant cardiac abnormalities. The combination of T wave inversions, ST depression, and P wave abnormalities indicates tha"
+    },
+    {
+      "patient_id": 9,
+      "demographics": {
+        "age": 68,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "reasoning_chain": "T-wave abnormality -> atrial enlargement -> event-prone but not mortality-dominant profile -> MACE",
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "ischemia"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 675,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 0** (0 = No, 1 = Yes)\n  Current findings do not suggest significantly elevated mortality risk.\n\n**Summary:**\n  - MACE Prediction: 1\n  - Mortality Prediction: 0\n\n**Detailed Risk Stratification:**\n"
+    },
+    {
+      "patient_id": 10,
+      "demographics": {
+        "age": 90,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "atrial enlargement"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 220,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  - This finding requires clinical attention."
+    },
+    {
+      "patient_id": 11,
+      "demographics": {
+        "age": 39,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> LVH -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "LVH"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 407,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\n  - Age: 39 years\n  - Gender: Male\n  - Weight: 45.5 kg\n  - Height: 1"
+    },
+    {
+      "patient_id": 12,
+      "demographics": {
+        "age": 80,
+        "gender": "Female",
+        "weight_kg": 53.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "bundle branch block"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 330,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk."
+    },
+    {
+      "patient_id": 13,
+      "demographics": {
+        "age": 52,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "T-wave abnormality",
+        "LVH"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 1977,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 0** (0 = No, 1 = Yes)\n2. **Mortality Prediction: 0** (0 = No, 1 = Yes)\n\nDespite some findings, the overall risk profile appears manageable with standard care.\n\nThis finding requires clinical attention.\n\nBased on the patient demographics and EKG findings:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n2. **Mortality Prediction: 1** (0 = No, 1 ="
+    },
+    {
+      "patient_id": 14,
+      "demographics": {
+        "age": 61,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "LBBB",
+        "RBBB"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 2767,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\nThis is based on the general EKG findings and patient demographics. "
+    },
+    {
+      "patient_id": 15,
+      "demographics": {
+        "age": 70,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "ischemia"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 558,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\nThese predictions are based on the identified abnormalities and thei"
+    },
+    {
+      "patient_id": 16,
+      "demographics": {
+        "age": 70,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave abnormality -> ischemia -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave abnormality -> ischemia -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "ischemia"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 1808,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\nAdditionally, based on the EKG findings:\n\n- **P Wave Abnormality: 24"
+    },
+    {
+      "patient_id": 17,
+      "demographics": {
+        "age": 76,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "T-wave abnormality -> atrial enlargement -> arrhythmia-related risk pathway -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> arrhythmia-related risk pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "atrial fibrillation"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 330,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk."
+    },
+    {
+      "patient_id": 18,
+      "demographics": {
+        "age": 82,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 330,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk."
+    },
+    {
+      "patient_id": 19,
+      "demographics": {
+        "age": 34,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 442,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  - The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  - The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\n\n- Age: 34 years\n  - Gender: Male\n  - Weight: 45.5 kg\n  - Height"
+    },
+    {
+      "patient_id": 20,
+      "demographics": {
+        "age": 72,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "reasoning_chain": "atrial enlargement -> atrial fibrillation -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality",
+      "mace_chain": "atrial enlargement -> atrial fibrillation -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "atrial enlargement -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "atrial enlargement",
+        "atrial fibrillation",
+        "ventricular hypertrophy"
+      ],
+      "conversion_method": "LLM-assisted extraction from Stage2 raw_generation (Composer); sparse texts enriched with Stage1 keywords",
+      "source_raw_generation_chars": 598,
+      "source_raw_generation_preview": "Based on the clinical assessment:\n\n1. **MACE Prediction: 1** (0 = No, 1 = Yes)\n  The combination of EKG abnormalities and patient factors suggests elevated cardiovascular risk.\n\n2. **Mortality Prediction: 1** (0 = No, 1 = Yes)\n  The identified abnormalities combined with patient characteristics indicate increased mortality risk.\n\n**Disclaimer**: The EKG findings and patient demographics suggest th"
+    }
+  ]
+}
