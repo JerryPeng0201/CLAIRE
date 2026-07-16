@@ -1,0 +1,980 @@
+{
+  "meta": {
+    "source_file": "/mnt/rds/VipinRDS/VipinRDS/users/jxp1146/projects/UH/github/CLAIRE-Alpha/outputs/inference_50/inference_results_20260715_183014.json",
+    "created_at": "20260715_212208",
+    "num_patients": 50,
+    "note": "Format matches inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt. Original inference JSON not modified."
+  },
+  "patients": [
+    {
+      "patient_id": 1,
+      "demographics": {
+        "age": 80,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "bundle branch block",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 408
+    },
+    {
+      "patient_id": 2,
+      "demographics": {
+        "age": 69,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2506
+    },
+    {
+      "patient_id": 3,
+      "demographics": {
+        "age": 91,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> LVH -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "LVH",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 4,
+      "demographics": {
+        "age": 83,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "LBBB -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "LBBB -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "LBBB",
+        "bundle branch block"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 220
+    },
+    {
+      "patient_id": 5,
+      "demographics": {
+        "age": 53,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "younger adult (53), Male -> limited definitive EKG risk signals -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "younger adult (53), Male -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 296
+    },
+    {
+      "patient_id": 6,
+      "demographics": {
+        "age": 77,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> Q waves / prior MI -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "Q waves / prior MI",
+        "acute MI pattern"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 1470
+    },
+    {
+      "patient_id": 7,
+      "demographics": {
+        "age": 81,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST depression -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST depression -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST depression",
+        "T-wave inversion",
+        "LBBB",
+        "RBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2783
+    },
+    {
+      "patient_id": 8,
+      "demographics": {
+        "age": 77,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "LBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2320
+    },
+    {
+      "patient_id": 9,
+      "demographics": {
+        "age": 68,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 675
+    },
+    {
+      "patient_id": 10,
+      "demographics": {
+        "age": 90,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 220
+    },
+    {
+      "patient_id": 11,
+      "demographics": {
+        "age": 39,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> LVH -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "LVH"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 407
+    },
+    {
+      "patient_id": 12,
+      "demographics": {
+        "age": 80,
+        "gender": "Female",
+        "weight_kg": 53.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "bundle branch block"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 13,
+      "demographics": {
+        "age": 52,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "T-wave abnormality",
+        "LVH"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 1977
+    },
+    {
+      "patient_id": 14,
+      "demographics": {
+        "age": 61,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "LBBB",
+        "RBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2767
+    },
+    {
+      "patient_id": 15,
+      "demographics": {
+        "age": 70,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 558
+    },
+    {
+      "patient_id": 16,
+      "demographics": {
+        "age": 70,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> ischemia -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 1808
+    },
+    {
+      "patient_id": 17,
+      "demographics": {
+        "age": 76,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> arrhythmia-related risk pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "atrial fibrillation"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 18,
+      "demographics": {
+        "age": 82,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 19,
+      "demographics": {
+        "age": 34,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 442
+    },
+    {
+      "patient_id": 20,
+      "demographics": {
+        "age": 72,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "atrial enlargement -> atrial fibrillation -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "atrial enlargement -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "atrial enlargement",
+        "atrial fibrillation",
+        "ventricular hypertrophy"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 598
+    },
+    {
+      "patient_id": 21,
+      "demographics": {
+        "age": 88,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "atrial fibrillation"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 334
+    },
+    {
+      "patient_id": 22,
+      "demographics": {
+        "age": 72,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> ST depression -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "LBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2517
+    },
+    {
+      "patient_id": 23,
+      "demographics": {
+        "age": 55,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "younger adult (55), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "younger adult (55), Female -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 1319
+    },
+    {
+      "patient_id": 24,
+      "demographics": {
+        "age": 76,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 334
+    },
+    {
+      "patient_id": 25,
+      "demographics": {
+        "age": 50,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "mace_chain": "younger adult (50), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "younger adult (50), Female -> EKG abnormalities (Stage II assessment) -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 454
+    },
+    {
+      "patient_id": 26,
+      "demographics": {
+        "age": 68,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "ST elevation -> atrial enlargement -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "ST elevation -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "atrial enlargement",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 325
+    },
+    {
+      "patient_id": 27,
+      "demographics": {
+        "age": 79,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST depression -> ischemia -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST depression -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST depression",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 28,
+      "demographics": {
+        "age": 55,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "LVH"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2486
+    },
+    {
+      "patient_id": 29,
+      "demographics": {
+        "age": 61,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "atrial fibrillation -> tachycardia -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "atrial fibrillation -> tachycardia -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "atrial fibrillation",
+        "tachycardia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 292
+    },
+    {
+      "patient_id": 30,
+      "demographics": {
+        "age": 56,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "atrial enlargement -> younger adult (56), Female -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "atrial enlargement -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 220
+    },
+    {
+      "patient_id": 31,
+      "demographics": {
+        "age": 92,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "advanced age (92), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "advanced age (92), Female -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 32,
+      "demographics": {
+        "age": 61,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "atrial enlargement -> younger adult (61), Female -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE",
+      "mortality_chain": "atrial enlargement -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 344
+    },
+    {
+      "patient_id": 33,
+      "demographics": {
+        "age": 84,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "bundle branch block",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 357
+    },
+    {
+      "patient_id": 34,
+      "demographics": {
+        "age": 51,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "atrial enlargement",
+        "ischemia"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 1909
+    },
+    {
+      "patient_id": 35,
+      "demographics": {
+        "age": 85,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "bundle branch block"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 36,
+      "demographics": {
+        "age": 67,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "LBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2308
+    },
+    {
+      "patient_id": 37,
+      "demographics": {
+        "age": 66,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "RVH -> atrial enlargement -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "RVH -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "RVH",
+        "atrial enlargement",
+        "ventricular hypertrophy"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 38,
+      "demographics": {
+        "age": 69,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "atrial enlargement -> advanced age (69), Female -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "atrial enlargement -> advanced age (69), Female -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 296
+    },
+    {
+      "patient_id": 39,
+      "demographics": {
+        "age": 75,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave inversion",
+        "T-wave abnormality",
+        "Q waves / prior MI"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2263
+    },
+    {
+      "patient_id": 40,
+      "demographics": {
+        "age": 55,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 41,
+      "demographics": {
+        "age": 47,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "T-wave abnormality",
+        "bundle branch block"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 42,
+      "demographics": {
+        "age": 86,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "T-wave abnormality",
+        "bundle branch block",
+        "atrial enlargement"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 43,
+      "demographics": {
+        "age": 57,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 44,
+      "demographics": {
+        "age": 86,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "atrial fibrillation -> advanced age (86), Male -> arrhythmia-related risk pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "atrial fibrillation -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "atrial fibrillation"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 330
+    },
+    {
+      "patient_id": 45,
+      "demographics": {
+        "age": 66,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> ST depression -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 299
+    },
+    {
+      "patient_id": 46,
+      "demographics": {
+        "age": 70,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "advanced age (70), Female -> limited definitive EKG risk signals -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "advanced age (70), Female -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 294
+    },
+    {
+      "patient_id": 47,
+      "demographics": {
+        "age": 67,
+        "gender": "Female",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave inversion",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2580
+    },
+    {
+      "patient_id": 48,
+      "demographics": {
+        "age": 62,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 1,
+      "mace_chain": "ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality",
+      "extracted_findings": [
+        "ST elevation",
+        "ST depression",
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 355
+    },
+    {
+      "patient_id": 49,
+      "demographics": {
+        "age": 67,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 0,
+      "mortality_prediction": 0,
+      "mace_chain": "T-wave abnormality -> advanced age (67), Male -> stable/manageable intermediate risk -> standard care sufficient -> no MACE",
+      "mortality_chain": "T-wave abnormality -> advanced age (67), Male -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "T-wave abnormality"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 292
+    },
+    {
+      "patient_id": 50,
+      "demographics": {
+        "age": 62,
+        "gender": "Male",
+        "weight_kg": 0.0,
+        "height_cm": 157.0
+      },
+      "mace_prediction": 1,
+      "mortality_prediction": 0,
+      "mace_chain": "T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE",
+      "mortality_chain": "T-wave inversion -> T-wave abnormality -> limited mortality drivers -> preserved near-term outlook -> no Mortality",
+      "extracted_findings": [
+        "T-wave inversion",
+        "T-wave abnormality",
+        "LBBB",
+        "RBBB"
+      ],
+      "conversion_method": "Same format as inference_20 stage2_mace_chains.txt / stage2_mortality_chains.txt",
+      "source_raw_generation_chars": 2379
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+1. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+2. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+3. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+4. LBBB -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+5. younger adult (53), Male -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+6. ST elevation -> Q waves / prior MI -> adverse prognosis signals -> increased death risk -> Mortality
+
+7. ST depression -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality
+
+8. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+9. T-wave abnormality -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+10. T-wave inversion -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+11. T-wave inversion -> LVH -> adverse prognosis signals -> increased death risk -> Mortality
+
+12. T-wave inversion -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality
+
+13. ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality
+
+14. ST elevation -> LBBB -> adverse prognosis signals -> increased death risk -> Mortality
+
+15. ST elevation -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality
+
+16. T-wave abnormality -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+17. T-wave abnormality -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality
+
+18. advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+19. younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+20. atrial enlargement -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality
+
+21. ST elevation -> atrial fibrillation -> adverse prognosis signals -> increased death risk -> Mortality
+
+22. ST elevation -> ST depression -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+23. younger adult (55), Female -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+24. T-wave abnormality -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality
+
+25. younger adult (50), Female -> EKG abnormalities (Stage II assessment) -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+26. ST elevation -> atrial enlargement -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+27. ST depression -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+28. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+29. atrial fibrillation -> tachycardia -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+30. atrial enlargement -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+31. advanced age (92), Female -> EKG abnormalities (Stage II assessment) -> adverse prognosis signals -> increased death risk -> Mortality
+
+32. atrial enlargement -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+33. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+34. T-wave abnormality -> ischemia -> adverse prognosis signals -> increased death risk -> Mortality
+
+35. ST elevation -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality
+
+36. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+37. RVH -> ventricular hypertrophy -> adverse prognosis signals -> increased death risk -> Mortality
+
+38. atrial enlargement -> advanced age (69), Female -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+39. ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality
+
+40. ST elevation -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+41. ST elevation -> bundle branch block -> adverse prognosis signals -> increased death risk -> Mortality
+
+42. T-wave abnormality -> atrial enlargement -> adverse prognosis signals -> increased death risk -> Mortality
+
+43. ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality
+
+44. atrial fibrillation -> adverse risk stratification -> adverse prognosis signals -> increased death risk -> Mortality
+
+45. ST elevation -> ST depression -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+46. advanced age (70), Female -> limited definitive EKG risk signals -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+47. ST elevation -> T-wave inversion -> adverse prognosis signals -> increased death risk -> Mortality
+
+48. ST elevation -> T-wave abnormality -> adverse prognosis signals -> increased death risk -> Mortality
+
+49. T-wave abnormality -> advanced age (67), Male -> limited mortality drivers -> preserved near-term outlook -> no Mortality
+
+50. T-wave inversion -> T-wave abnormality -> limited mortality drivers -> preserved near-term outlook -> no Mortality

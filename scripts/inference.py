@@ -8,7 +8,7 @@ For each patient:
 Defaults:
   --model_path  projects/UH/CLAIRE_Alpha_local/checkpoints/claire_alpha_20250814_141439
   --csv_path    projects/UH/CLAIRE_Alpha_local/data/dataset/ekg.csv
-  --num_patients 20
+  --num_patients 50
 """
 
 from __future__ import annotations
@@ -538,8 +538,8 @@ def main():
     parser.add_argument(
         "--num_patients",
         type=int,
-        default=20,
-        help="Number of patients to run (default: 20)",
+        default=50,
+        help="Number of patients to run (default: 50)",
     )
     parser.add_argument(
         "--output_dir",
@@ -547,9 +547,9 @@ def main():
         default=os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
             "outputs",
-            "inference",
+            "inference_50",
         ),
-        help="Directory for JSON outputs (default: CLAIRE-Alpha/outputs/inference)",
+        help="Directory for JSON outputs (default: CLAIRE-Alpha/outputs/inference_50)",
     )
     parser.add_argument(
         "--stage1_cache",
@@ -564,7 +564,7 @@ def main():
     csv_path = _resolve_path(args.csv_path)
     output_dir = _resolve_path(args.output_dir)
     os.makedirs(output_dir, exist_ok=True)
-    # Timestamped JSON filename under outputs/inference/
+    # Timestamped JSON filename under outputs/inference_50/
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     json_filename = f"inference_results_{timestamp}.json"
 
@@ -627,7 +627,7 @@ def main():
         "stage1_cache_path": cache_path,
     }
     final_payload = {"meta": meta, "patients": results}
-    # Write primary JSON to outputs/inference/
+    # Write primary JSON to outputs/inference_50/
     json_path = os.path.join(output_dir, json_filename)
     _atomic_json_dump(json_path, final_payload)
     latest_path = os.path.join(output_dir, "inference_results.json")

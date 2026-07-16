@@ -1,0 +1,649 @@
+1. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+2. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+3. T-wave abnormality -> LVH -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+4. LBBB -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+5. younger adult (53), Male -> limited definitive EKG risk signals -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+6. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+7. ST depression -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+8. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+9. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> event-prone but not mortality-dominant profile -> MACE
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+10. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+11. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+12. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+13. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+14. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+15. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+16. T-wave abnormality -> ischemia -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+17. T-wave abnormality -> atrial enlargement -> arrhythmia-related risk pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+18. advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+19. younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+20. atrial enlargement -> atrial fibrillation -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+21. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+22. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> event-prone but not mortality-dominant profile -> MACE
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+23. younger adult (55), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+24. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+25. younger adult (50), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> event-prone but not mortality-dominant profile -> MACE
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+26. ST elevation -> atrial enlargement -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+27. ST depression -> ischemia -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+28. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+29. atrial fibrillation -> tachycardia -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+30. atrial enlargement -> younger adult (56), Female -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+31. advanced age (92), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+32. atrial enlargement -> younger adult (61), Female -> worsening cardiac risk phenotype -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+33. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+34. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+35. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+36. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+37. RVH -> atrial enlargement -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+38. atrial enlargement -> advanced age (69), Female -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+39. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+40. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+41. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+42. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+43. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+44. atrial fibrillation -> advanced age (86), Male -> arrhythmia-related risk pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+45. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> event-prone but not mortality-dominant profile -> MACE
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+46. advanced age (70), Female -> limited definitive EKG risk signals -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+47. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+48. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> high-risk CV trajectory -> MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+49. T-wave abnormality -> advanced age (67), Male -> low predicted risk trajectory -> no MACE/Mortality
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10
+
+50. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> event-prone but not mortality-dominant profile -> MACE
+
+Rate this causal-style hierarchy on the basis of the following:
+
+1=Poor
+5=Average
+10=Excellent
+
+Clinical feasibility: 1-10
+Accuracy: 1-10
+Likelihood to be true: 1-10
+Verifiability/support by evidence: 1-10

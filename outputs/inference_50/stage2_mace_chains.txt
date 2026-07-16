@@ -1,0 +1,99 @@
+1. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+2. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+3. T-wave abnormality -> LVH -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+4. LBBB -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+5. younger adult (53), Male -> limited definitive EKG risk signals -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+6. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+7. ST depression -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+8. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+9. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+10. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+11. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+12. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+13. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+14. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+15. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+16. T-wave abnormality -> ischemia -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+17. T-wave abnormality -> atrial enlargement -> arrhythmia-related risk pathway -> elevated MACE risk -> MACE
+
+18. advanced age (82), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+19. younger adult (34), Male -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+20. atrial enlargement -> atrial fibrillation -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+21. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+22. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+23. younger adult (55), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+24. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+25. younger adult (50), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+26. ST elevation -> atrial enlargement -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+27. ST depression -> ischemia -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+28. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+29. atrial fibrillation -> tachycardia -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+30. atrial enlargement -> younger adult (56), Female -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+31. advanced age (92), Female -> EKG abnormalities (Stage II assessment) -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+32. atrial enlargement -> younger adult (61), Female -> worsening cardiac risk phenotype -> elevated MACE risk -> MACE
+
+33. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+34. T-wave abnormality -> atrial enlargement -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+35. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+36. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+37. RVH -> atrial enlargement -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+38. atrial enlargement -> advanced age (69), Female -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+39. ST elevation -> T-wave inversion -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+40. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+41. ST elevation -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+42. T-wave abnormality -> bundle branch block -> structural / conduction remodeling -> elevated MACE risk -> MACE
+
+43. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+44. atrial fibrillation -> advanced age (86), Male -> arrhythmia-related risk pathway -> elevated MACE risk -> MACE
+
+45. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+46. advanced age (70), Female -> limited definitive EKG risk signals -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+47. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+48. ST elevation -> ST depression -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
+
+49. T-wave abnormality -> advanced age (67), Male -> stable/manageable intermediate risk -> standard care sufficient -> no MACE
+
+50. T-wave inversion -> T-wave abnormality -> myocardial ischemia / injury pathway -> elevated MACE risk -> MACE
